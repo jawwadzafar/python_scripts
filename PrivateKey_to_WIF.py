@@ -2,7 +2,7 @@ import hashlib
 import base58
 import binascii
 
-private_key_static = raw_input("Enter Your Private Key : ");
+private_key_static = input("Enter Your Private Key : ");
 
 extended_key = "80"+private_key_static
 first_sha256 = hashlib.sha256(binascii.unhexlify(extended_key)).hexdigest()
@@ -15,4 +15,3 @@ final_key = extended_key+second_sha256[:8]
 WIF = base58.b58encode(binascii.unhexlify(final_key))
 
 print ("Your WIF Key : " + WIF)
-
